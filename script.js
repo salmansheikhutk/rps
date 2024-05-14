@@ -23,31 +23,27 @@ function playGame() {
     let computer = 0;
     let choices = ["paper","rock","scissors"];
 
-    for (let i=0; i < 5; i++){
-        let playerSelection = prompt("Enter your selection: ");
-        let random_choices = Math.floor(Math.random() * choices.length);
-        let computerSelection = choices[random_choices];
 
-        let result = playRound(playerSelection,computerSelection);
-        console.log(result)
-        if (result == "You win!") {
-            user = user + 1;
-        } else if (result == "You lose!") {
-            computer = computer + 1
-        } 
-    }
-    console.log("User score: " + user + "Computer score: " + computer)
-    if (user >= 3) {
-        console.log("User won!")
-    } else if (computer >= 3) {
-        console.log("Computer won!")
-    } else {
-        console.log("Replay. No winner declared.")
-    }
+    let playerSelection = this.innerHTML;
+    let random_choices = Math.floor(Math.random() * choices.length);
+    let computerSelection = choices[random_choices];
+
+    let result = playRound(playerSelection,computerSelection);
+    console.log(result)
+    console.log(playerSelection)
+    console.log(computerSelection)
+    if (result == "You win!") {
+        user = user + 1;
+    } else if (result == "You lose!") {
+        computer = computer + 1
+    } 
 }
 
-playGame()
+const btn = document.querySelector("#btn1");
+btn.addEventListener("click", playGame);
 
+const btn2 = document.querySelector("#btn2");
+btn2.addEventListener("click", playGame);
 
-
-
+const btn3 = document.querySelector("#btn3");
+btn3.addEventListener("click", playGame);
